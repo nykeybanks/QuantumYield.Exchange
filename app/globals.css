@@ -1,0 +1,194 @@
+@import "tailwindcss";
+
+@theme inline {
+  /* Core surfaces — ultra dark QYX20 environment */
+  --color-background: #050506;
+  --color-foreground: #e8e6e1;
+
+  --color-surface: #0b0b0d;
+  --color-surface-raised: #121215;
+  --color-graphite: #17171b;
+  --color-charcoal: #1e1e22;
+
+  --color-muted: #0e0e10;
+  --color-muted-foreground: #8a877f;
+
+  --color-border: #232327;
+  --color-border-strong: #33333a;
+
+  /* QYX Gold accent */
+  --color-gold: #c6a85a;
+  --color-gold-soft: #d9c084;
+  --color-gold-deep: #9c8544;
+  --color-gold-foreground: #0a0a0b;
+
+  /* Restrained silver / chrome */
+  --color-silver: #b9bac0;
+  --color-chrome: #6f7076;
+
+  --color-success: #6fae7a;
+  --color-info: #7d8aa8;
+
+  --font-sans: var(--font-exo2), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-orbitron), ui-sans-serif, system-ui, sans-serif;
+
+  --radius: 0.75rem;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    background-color: var(--color-background);
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+  }
+
+  ::selection {
+    background-color: color-mix(in oklab, var(--color-gold) 30%, transparent);
+    color: var(--color-foreground);
+  }
+
+  h1,
+  h2,
+  h3,
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+}
+
+@layer utilities {
+  .text-gradient-gold {
+    background: linear-gradient(135deg, #e6d3a0 0%, #c6a85a 45%, #9c8544 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .text-gradient-silver {
+    background: linear-gradient(135deg, #ffffff 0%, #b9bac0 55%, #6f7076 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .bg-grid {
+    background-image:
+      linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 56px 56px;
+  }
+
+  .bg-radial-gold {
+    background: radial-gradient(60% 60% at 50% 30%, rgba(198, 168, 90, 0.12) 0%, transparent 70%);
+  }
+
+  .hairline {
+    border-color: var(--color-border);
+  }
+
+  .glass {
+    background: color-mix(in oklab, var(--color-surface) 72%, transparent);
+    backdrop-filter: blur(14px);
+  }
+}
+
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@keyframes orbit-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes orbit-spin-reverse {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes pulse-soft {
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.animate-orbit {
+  animation: orbit-spin 48s linear infinite;
+}
+
+.animate-orbit-reverse {
+  animation: orbit-spin-reverse 64s linear infinite;
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .animate-orbit,
+  .animate-orbit-reverse,
+  .animate-pulse-soft {
+    animation: none;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-background);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border-strong);
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gold-deep);
+}

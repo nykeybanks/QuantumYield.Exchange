@@ -1,0 +1,17 @@
+{
+  "name": "QYX20 — Unified Financial Infrastructure",
+  "short_name": "QYX20",
+  "description": "QuantumYield's unified platform for identity, assets, payments, settlement, intelligence and developer services.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

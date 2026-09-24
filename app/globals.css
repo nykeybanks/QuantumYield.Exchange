@@ -1,0 +1,162 @@
+@import "tailwindcss";
+
+/*
+  QYX20 — QuantumYield Unified Financial Infrastructure
+  Canonical design system: void black + graphite + platinum + titanium + restrained champagne.
+  Engineered, not neon.
+*/
+
+@theme inline {
+  /* Raw palette */
+  --color-qyx-void: #000000;
+  --color-qyx-obsidian: #0a0a0a;
+  --color-qyx-charcoal: #121212;
+  --color-qyx-graphite: #1a1a1a;
+  --color-qyx-graphite-2: #232323;
+
+  --color-qyx-titanium: #b0b0b0;
+  --color-qyx-silver: #c0c0c0;
+  --color-qyx-platinum: #ececec;
+
+  --color-qyx-champagne: #e6c7a0;
+  --color-qyx-warm-champagne: #e6cfa5;
+  --color-qyx-gold: #b79355;
+
+  /* Semantic tokens */
+  --color-background: #000000;
+  --color-surface: #0a0a0a;
+  --color-surface-elevated: #121212;
+  --color-surface-raised: #1a1a1a;
+
+  --color-border: #232323;
+  --color-border-strong: #2f2f2f;
+  --color-border-active: #b79355;
+
+  --color-foreground: #f5f5f2;
+  --color-text-secondary: #b8b8b3;
+  --color-text-muted: #777772;
+
+  --color-champagne: #e6c7a0;
+  --color-gold: #b79355;
+  --color-silver: #c0c0c0;
+  --color-titanium: #b0b0b0;
+  --color-platinum: #ececec;
+
+  --color-success: #5fa87a;
+  --color-warning: #d1a24a;
+  --color-danger: #c0655a;
+  --color-information: #6f8bb0;
+
+  /* Typography */
+  --font-display: var(--font-orbitron), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-exo2), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-exo2), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-mono-jetbrains), ui-monospace, monospace;
+
+  /* Radius */
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 8px;
+
+  /* Motion */
+  --motion-fast: 120ms;
+  --motion-ui: 220ms;
+  --motion-panel: 360ms;
+  --motion-story: 640ms;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    background-color: var(--color-background);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-body);
+    line-height: 1.6;
+  }
+
+  ::selection {
+    background-color: rgba(230, 199, 160, 0.22);
+    color: var(--color-platinum);
+  }
+
+  /* Thin technical scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-obsidian, #0a0a0a);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #2a2a2a;
+    border-radius: 0;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #3a3a3a;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+  }
+  .font-body {
+    font-family: var(--font-body);
+  }
+
+  /* Restrained metallic type treatment for brand marks / focal metrics only */
+  .text-metallic {
+    background: linear-gradient(
+      180deg,
+      #f3ead9 0%,
+      #e6c7a0 40%,
+      #b79355 78%,
+      #8f7040 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  .text-platinum-sheen {
+    background: linear-gradient(180deg, #ffffff 0%, #ececec 45%, #9a9a9a 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  /* Fine technical grid backdrop */
+  .qyx-grid {
+    background-image: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0.028) 1px,
+        transparent 1px
+      ),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.028) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+
+  .qyx-hairline {
+    border: 1px solid var(--color-border);
+  }
+
+  /* Subtle focal illumination — use sparingly */
+  .qyx-focal-glow {
+    box-shadow: 0 0 80px -20px rgba(230, 199, 160, 0.35);
+  }
+
+  .tracking-brand {
+    letter-spacing: 0.18em;
+  }
+}

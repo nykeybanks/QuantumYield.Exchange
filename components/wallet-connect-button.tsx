@@ -33,14 +33,16 @@ export function WalletConnectButton() {
           <ChevronDownIcon data-icon="inline-end" />
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end" className="w-64">
-          <DropdownMenuLabel>
-            <div className="flex flex-col gap-0.5">
-              <span className="font-normal text-muted-foreground">
-                {kind === "demo" ? "Demo wallet" : "Connected wallet"}
-              </span>
-              <span className="text-nums text-sm">{chainName}</span>
-            </div>
-          </DropdownMenuLabel>
+          <DropdownMenuGroup>
+            <DropdownMenuLabel>
+              <div className="flex flex-col gap-0.5">
+                <span className="font-normal text-muted-foreground">
+                  {kind === "demo" ? "Demo wallet" : "Connected wallet"}
+                </span>
+                <span className="text-nums text-sm">{chainName}</span>
+              </div>
+            </DropdownMenuLabel>
+          </DropdownMenuGroup>
           <DropdownMenuSeparator />
           <DropdownMenuGroup>
             <DropdownMenuItem
@@ -78,7 +80,9 @@ export function WalletConnectButton() {
         {pending ? "Connecting…" : "Connect Wallet"}
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="w-72">
-        <DropdownMenuLabel>Choose a connection method</DropdownMenuLabel>
+        <DropdownMenuGroup>
+          <DropdownMenuLabel>Choose a connection method</DropdownMenuLabel>
+        </DropdownMenuGroup>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
           <DropdownMenuItem

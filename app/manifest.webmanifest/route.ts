@@ -10,7 +10,12 @@ export function GET() {
     background_color: "#050506",
     theme_color: "#050506",
     icons: [
-      { src: "/icon.svg", sizes: "any", type: "image/svg+xml", purpose: "any" },
+      {
+        src: "/brand/qyx/source-05/lockups/app-icon.png",
+        sizes: "79x76",
+        type: "image/png",
+        purpose: "any",
+      },
     ],
   })
 }

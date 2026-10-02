@@ -21,6 +21,13 @@ export const metadata: Metadata = {
     "QYX20 combines cutting-edge blockchain technology with user-centric design to create a seamless, secure, and scalable platform for the next generation of decentralized applications.",
   applicationName: "QYX20",
   manifest: "/manifest.webmanifest",
+  icons: {
+    icon: {
+      url: "/brand/qyx/source-05/lockups/app-icon.png",
+      type: "image/png",
+      sizes: "79x76",
+    },
+  },
   keywords: ["QYX20", "QuantumYield", "Web3", "DeFi", "blockchain", "gateway"],
   openGraph: {
     title: "QYX20 — QuantumYield Online Web-3 Gateway",

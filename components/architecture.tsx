@@ -11,7 +11,7 @@ export function Architecture() {
   const [active, setActive] = useState(3)
 
   return (
-    <section className="mx-auto max-w-7xl px-5 py-24 lg:px-8 lg:py-32">
+    <section id="architecture" className="mx-auto max-w-7xl px-5 py-24 lg:px-8 lg:py-32">
       <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
         <div className="lg:sticky lg:top-28 lg:self-start">
           <Reveal>
@@ -30,7 +30,7 @@ export function Architecture() {
                 </span>
               ))}
             </div>
-            <div className="mt-8 rounded-2xl border border-border bg-surface-raised p-6">
+            <div className="mt-8 hidden rounded-2xl border border-border bg-surface-raised p-6 lg:block">
               <p className="text-sm uppercase tracking-[0.2em] text-gold">{architectureLayers[active].label}</p>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{architectureLayers[active].detail}</p>
             </div>
@@ -38,7 +38,7 @@ export function Architecture() {
         </div>
 
         <Reveal delay={120}>
-          <ol className="space-y-1.5">
+          <ol className="flex flex-col gap-2">
             {architectureLayers.map((layer, i) => {
               const isActive = active === i
               return (
@@ -46,18 +46,18 @@ export function Architecture() {
                   <button
                     onClick={() => setActive(i)}
                     aria-pressed={isActive}
-                    className={`group flex w-full items-center gap-4 rounded-xl border px-5 py-4 text-left transition-all duration-300 ${
+                    aria-controls={`architecture-detail-${i}`}
+                    className={`group flex w-full items-center gap-3 rounded-xl border px-4 py-4 text-left transition-colors duration-200 sm:px-5 ${
                       isActive
                         ? "border-gold/40 bg-surface-raised"
                         : "border-border bg-surface/40 hover:border-border-strong hover:bg-surface-raised/70"
                     }`}
-                    style={{ marginLeft: `${i * 6}px` }}
                   >
                     <span className={`font-display text-xs tabular-nums ${isActive ? "text-gold" : "text-chrome"}`}>
                       {String(i + 1).padStart(2, "0")}
                     </span>
                     <span
-                      className={`font-display text-base font-medium transition-colors ${
+                      className={`min-w-0 flex-1 font-display text-sm font-medium transition-colors sm:text-base ${
                         isActive ? "text-foreground" : "text-muted-foreground group-hover:text-foreground"
                       }`}
                     >
@@ -69,6 +69,7 @@ export function Architecture() {
                       }`}
                     />
                   </button>
+                  <p id={`architecture-detail-${i}`} hidden={!isActive} className="px-4 py-4 text-sm leading-relaxed text-muted-foreground lg:hidden">{layer.detail}</p>
                 </li>
               )
             })}

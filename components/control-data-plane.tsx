@@ -4,7 +4,7 @@ import { controlPlane, dataPlane } from "@/lib/data"
 
 export function ControlDataPlane() {
   return (
-    <section className="mx-auto max-w-7xl px-5 py-24 lg:px-8 lg:py-32">
+    <section id="control-data-plane" className="mx-auto max-w-7xl px-5 py-24 lg:px-8 lg:py-32">
       <Reveal className="mx-auto max-w-2xl text-center">
         <SectionLabel>Control & Data Plane</SectionLabel>
         <h2 className="mt-6 text-balance text-4xl font-bold tracking-tight sm:text-5xl">

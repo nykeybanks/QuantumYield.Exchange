@@ -22,13 +22,13 @@ export function PortalExplorer() {
       </Reveal>
 
       {/* Portal selector — spatial nav */}
-      <div className="mt-14 flex flex-wrap justify-center gap-2.5">
+      <div role="group" aria-label="Choose a portal" className="mt-8 grid grid-cols-4 gap-2 sm:mt-12 sm:flex sm:flex-wrap sm:justify-center">
         {portals.map((p, i) => (
           <button
             key={p.id}
             onClick={() => setActive(i)}
             aria-pressed={active === i}
-            className={`rounded-full border px-4 py-2 font-display text-sm tracking-wide transition-all duration-300 ${
+            className={`min-h-11 min-w-0 rounded-lg border px-2 py-2 font-display text-[10px] tracking-wide transition-colors duration-200 sm:px-4 sm:text-sm ${
               active === i
                 ? "border-gold bg-gold text-gold-foreground"
                 : "border-border text-muted-foreground hover:border-gold/40 hover:text-foreground"
@@ -40,27 +40,25 @@ export function PortalExplorer() {
       </div>
 
       {/* Portal detail */}
-      <Reveal className="mt-12">
+      <Reveal className="mt-6 sm:mt-10">
         <div className="grid overflow-hidden rounded-3xl border border-border bg-surface-raised lg:grid-cols-2">
           {/* Visual */}
-          <div className="relative flex min-h-[280px] items-center justify-center overflow-hidden border-b border-border lg:border-b-0 lg:border-r">
+          <div className="relative flex min-h-44 sm:min-h-64 items-center justify-center overflow-hidden border-b border-border lg:border-b-0 lg:border-r">
             <div aria-hidden className="absolute inset-0 bg-grid opacity-40" />
             <div aria-hidden className="absolute inset-0 bg-radial-gold" />
             <div
               key={portal.id}
-              className="relative flex flex-col items-center"
-              style={{ animation: "fadeScale 0.5s cubic-bezier(0.22,1,0.36,1)" }}
+              className="qyx-portal-enter relative flex flex-col items-center"
             >
               <span className="font-display text-6xl font-bold tracking-tight text-gradient-gold sm:text-7xl">
                 {portal.name}
               </span>
               <span className="mt-3 text-xs uppercase tracking-[0.3em] text-chrome">QuantumYield Portal</span>
             </div>
-            <style>{`@keyframes fadeScale{from{opacity:0;transform:scale(0.96)}to{opacity:1;transform:none}}`}</style>
           </div>
 
           {/* Content */}
-          <div key={portal.id + "-c"} className="p-8 lg:p-10" style={{ animation: "fadeScale 0.5s ease" }}>
+          <div key={portal.id + "-c"} className="qyx-portal-enter min-w-0 p-5 sm:p-8 lg:p-10" aria-live="polite">
             <p className="text-sm uppercase tracking-[0.2em] text-gold">{portal.category}</p>
             <p className="mt-5 text-pretty leading-relaxed text-muted-foreground">{portal.description}</p>
             <ul className="mt-8 grid gap-3 sm:grid-cols-2">
@@ -73,7 +71,7 @@ export function PortalExplorer() {
                 </li>
               ))}
             </ul>
-            <Button className="mt-9">
+            <Button className="mt-7 w-full sm:w-auto">
               Explore {portal.name}
               <ArrowRight className="h-4 w-4" />
             </Button>

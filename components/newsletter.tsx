@@ -66,7 +66,7 @@ export function Newsletter() {
                   if (status !== "idle") setStatus("idle")
                 }}
                 aria-invalid={status === "error"}
-                className="w-full rounded-full border border-border bg-surface px-5 py-3 text-sm text-foreground placeholder:text-chrome focus:border-gold/50"
+                className="min-h-12 w-full rounded-full border border-border bg-surface px-5 py-3 text-base text-foreground placeholder:text-chrome focus:border-gold/50"
               />
             </div>
             <button

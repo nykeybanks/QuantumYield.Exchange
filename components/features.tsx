@@ -10,7 +10,7 @@ export function Features() {
   const [active, setActive] = useState(0)
 
   return (
-    <section className="border-y border-border bg-surface/30 py-24 lg:py-32">
+    <section id="features" className="border-y border-border bg-surface/30 py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <Reveal className="mx-auto max-w-2xl text-center">
           <SectionLabel>Powerful Features</SectionLabel>
@@ -29,6 +29,7 @@ export function Features() {
                 <button
                   key={f.title}
                   onClick={() => setActive(i)}
+                  aria-pressed={isActive}
                   className={`group flex w-full items-center justify-between gap-4 rounded-xl border px-5 py-5 text-left transition-all duration-300 ${
                     isActive
                       ? "border-gold/40 bg-surface-raised"
@@ -42,7 +43,7 @@ export function Features() {
                       {String(i + 1).padStart(2, "0")}
                     </span>
                     <span
-                      className={`font-display text-lg font-medium transition-colors ${
+                      className={`min-w-0 font-display text-sm font-medium transition-colors sm:text-lg ${
                         isActive ? "text-foreground" : "text-muted-foreground group-hover:text-foreground"
                       }`}
                     >

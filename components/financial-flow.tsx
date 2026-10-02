@@ -9,7 +9,7 @@ export function FinancialFlow() {
   const [active, setActive] = useState<number | null>(null)
 
   return (
-    <section className="border-y border-border bg-surface/30 py-24 lg:py-32">
+    <section id="financial-flow" className="border-y border-border bg-surface/30 py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <Reveal className="max-w-2xl">
           <SectionLabel>Financial Stack</SectionLabel>

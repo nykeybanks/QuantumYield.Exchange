@@ -7,7 +7,7 @@ function QuantumVisual() {
     <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
       <div className="absolute inset-0 bg-grid opacity-60 [mask-image:radial-gradient(65%_60%_at_50%_40%,black,transparent)]" />
       <div className="absolute inset-0 bg-radial-gold" />
-      <div className="absolute left-1/2 top-[42%] h-[640px] w-[640px] -translate-x-1/2 -translate-y-1/2">
+      <div className="absolute left-1/2 top-[42%] aspect-square w-[min(150vw,640px)] -translate-x-1/2 -translate-y-1/2 opacity-60 sm:opacity-100">
         <svg viewBox="0 0 640 640" className="h-full w-full">
           <defs>
             <linearGradient id="ring" x1="0" y1="0" x2="640" y2="640" gradientUnits="userSpaceOnUse">
@@ -47,14 +47,14 @@ function QuantumVisual() {
 
 export function Hero() {
   return (
-    <section id="top" className="relative flex min-h-[100svh] items-center justify-center overflow-hidden pt-24">
+    <section id="top" className="qyx-hero relative flex min-h-svh items-center justify-center overflow-hidden pb-12 pt-32 sm:pb-16 sm:pt-36">
       <QuantumVisual />
       <div className="relative z-10 mx-auto max-w-4xl px-5 text-center lg:px-8">
         <Reveal>
           <SectionLabel>QuantumYield Online Web-3 Gateway</SectionLabel>
         </Reveal>
         <Reveal delay={80}>
-          <h1 className="mt-8 text-balance text-5xl font-bold leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl">
+          <h1 className="mt-6 text-balance text-[clamp(2rem,8.8vw,3rem)] font-bold leading-[1.15] tracking-tight sm:mt-8 sm:text-6xl sm:leading-[1.05] lg:text-7xl">
             <span className="text-gradient-silver">Luxury-grade Web3 suite</span>
             <br />
             <span className="text-gradient-gold">for the modern era</span>
@@ -67,7 +67,7 @@ export function Hero() {
           </p>
         </Reveal>
         <Reveal delay={240}>
-          <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
+          <div className="mx-auto mt-8 flex max-w-sm flex-col items-stretch justify-center gap-3 sm:mt-10 sm:max-w-none sm:flex-row sm:items-center">
             <Button className="w-full sm:w-auto">Start Free Trial</Button>
             <Button variant="secondary" className="w-full sm:w-auto">
               <Play className="h-4 w-4" />

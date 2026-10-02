@@ -10,7 +10,7 @@ export function SecurityLayers() {
   const [active, setActive] = useState(0)
 
   return (
-    <section className="border-y border-border bg-surface/30 py-24 lg:py-32">
+    <section id="security" className="border-y border-border bg-surface/30 py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <Reveal className="mx-auto max-w-2xl text-center">
           <SectionLabel>Security</SectionLabel>

@@ -24,7 +24,7 @@ export function Roadmap() {
           {/* Timeline track */}
           <div className="relative">
             <div aria-hidden className="absolute left-0 right-0 top-5 hidden h-px bg-border md:block" />
-            <ol className="grid gap-4 md:grid-cols-4">
+            <ol className="grid grid-cols-2 gap-4 md:grid-cols-4">
               {roadmap.map((m, i) => {
                 const isActive = active === i
                 return (
@@ -32,7 +32,7 @@ export function Roadmap() {
                     <button
                       onClick={() => setActive(i)}
                       aria-expanded={isActive}
-                      className="group flex w-full flex-col items-start"
+                      className={`group flex h-full w-full flex-col items-start rounded-xl border p-3 sm:p-4 md:border-0 md:p-0 ${isActive ? "border-gold/40 bg-surface-raised md:bg-transparent" : "border-border"}`}
                     >
                       <span className="flex items-center gap-3 md:flex-col md:items-start">
                         <span
@@ -68,7 +68,7 @@ export function Roadmap() {
 
           {/* Detail */}
           <Reveal className="mt-10">
-            <div className="rounded-3xl border border-border bg-surface-raised p-8 lg:p-10">
+            <div className="rounded-3xl border border-border bg-surface-raised p-5 sm:p-8 lg:p-10">
               <div className="flex flex-wrap items-center justify-between gap-4">
                 <div>
                   <p className="text-sm uppercase tracking-[0.2em] text-gold">{roadmap[active].quarter}</p>

@@ -1,6 +1,7 @@
 import type React from "react"
 import type { Metadata, Viewport } from "next"
 import { Orbitron, Exo_2 } from "next/font/google"
+import { Preloader } from "@/components/preloader"
 import "./globals.css"
 
 const orbitron = Orbitron({
@@ -40,6 +41,7 @@ export const viewport: Viewport = {
   themeColor: "#050506",
   width: "device-width",
   initialScale: 1,
+  viewportFit: "cover",
   colorScheme: "dark",
 }
 
@@ -50,7 +52,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`bg-background ${orbitron.variable} ${exo2.variable}`}>
-      <body className="antialiased">{children}</body>
+      <body className="antialiased">
+        <noscript><style>{`.qyx-preloader { display: none !important; }`}</style></noscript>
+        <Preloader />
+        {children}
+      </body>
     </html>
   )
 }

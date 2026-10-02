@@ -27,7 +27,7 @@ const codeLines = [
 export function DeveloperSection() {
   return (
     <section id="developers" className="mx-auto max-w-7xl px-5 py-24 lg:px-8 lg:py-32">
-      <div className="grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-16">
+      <div className="grid min-w-0 grid-cols-1 gap-8 sm:gap-12 lg:grid-cols-2 lg:items-center lg:gap-16">
         <Reveal>
           <SectionLabel>Developers</SectionLabel>
           <h2 className="mt-6 text-balance text-4xl font-bold tracking-tight sm:text-5xl">Build on QYX20.</h2>
@@ -57,7 +57,7 @@ export function DeveloperSection() {
               <span className="h-3 w-3 rounded-full bg-border-strong" />
               <span className="ml-3 font-sans text-xs text-chrome">transfer.ts</span>
             </div>
-            <pre className="overflow-x-auto p-5 font-mono text-[13px] leading-relaxed">
+            <pre tabIndex={0} role="region" aria-label="Transfer code example, scroll horizontally to read" className="max-w-full overflow-x-auto overscroll-x-contain p-4 font-mono text-xs leading-relaxed sm:p-5 sm:text-[13px]">
               <code>
                 {codeLines.map((line, i) => (
                   <div key={i} className="whitespace-pre">

@@ -1,6 +1,6 @@
 export type NavItem = {
   label: string
-  columns?: { title: string; links: { label: string; description?: string }[] }[]
+  columns?: { title: string; links: { label: string; href: string; description?: string }[] }[]
 }
 
 export const navItems: NavItem[] = [
@@ -10,94 +10,68 @@ export const navItems: NavItem[] = [
       {
         title: "Core",
         links: [
-          { label: "Overview", description: "The QYX20 gateway at a glance" },
-          { label: "Wallets", description: "Non-custodial and smart accounts" },
-          { label: "Settlement", description: "Near-instant transaction finality" },
+          { label: "Overview", href: "#top", description: "The QYX20 gateway at a glance" },
+          { label: "Wallets", href: "#financial-flow", description: "Non-custodial and smart accounts" },
+          { label: "Settlement", href: "#financial-flow", description: "Near-instant transaction finality" },
         ],
       },
       {
         title: "Experience",
         links: [
-          { label: "Gasless Transactions", description: "Meta-transaction relayer" },
-          { label: "Cross-Chain", description: "Unified multi-network protocol" },
+          { label: "Gasless Transactions", href: "#features", description: "Meta-transaction relayer" },
+          { label: "Cross-Chain", href: "#features", description: "Unified multi-network protocol" },
         ],
       },
     ],
   },
   {
     label: "Solutions",
-    columns: [
-      {
-        title: "By need",
-        links: [
-          { label: "Enterprise Security", description: "Multi-layer protection" },
-          { label: "DeFi Integration", description: "Staking, yield, governance" },
-          { label: "Payments", description: "Routing and reconciliation" },
-        ],
-      },
-    ],
+    columns: [{ title: "By need", links: [
+      { label: "Enterprise Security", href: "#security", description: "Multi-layer protection" },
+      { label: "DeFi Integration", href: "#features", description: "Staking, yield, governance" },
+      { label: "Payments", href: "#financial-flow", description: "Routing and reconciliation" },
+    ] }],
   },
   {
     label: "Technology",
-    columns: [
-      {
-        title: "Infrastructure",
-        links: [
-          { label: "Architecture", description: "Cloud-native, API-first" },
-          { label: "Control & Data Plane", description: "Governed execution" },
-          { label: "Security Layers", description: "Security-by-design" },
-        ],
-      },
-    ],
+    columns: [{ title: "Infrastructure", links: [
+      { label: "Architecture", href: "#architecture", description: "Cloud-native, API-first" },
+      { label: "Control & Data Plane", href: "#control-data-plane", description: "Governed execution" },
+      { label: "Security Layers", href: "#security", description: "Security-by-design" },
+    ] }],
   },
   {
     label: "Portals",
     columns: [
-      {
-        title: "Gateways",
-        links: [
-          { label: "QYXai — AI Gateway" },
-          { label: "QYXdx — Data Exchange" },
-          { label: "QYXvr — Virtual Reality" },
-          { label: "QYXar — Augmented Reality" },
-        ],
-      },
-      {
-        title: "Infrastructure",
-        links: [
-          { label: "QYXcc — Computing / Cloud" },
-          { label: "QYXds — Data Storage" },
-          { label: "QYXnc — Network / Connectivity" },
-          { label: "QYXes — Energy / Sustainability" },
-        ],
-      },
+      { title: "Gateways", links: [
+        { label: "QYXai — AI Gateway", href: "#portals" },
+        { label: "QYXdx — Data Exchange", href: "#portals" },
+        { label: "QYXvr — Virtual Reality", href: "#portals" },
+        { label: "QYXar — Augmented Reality", href: "#portals" },
+      ] },
+      { title: "Infrastructure", links: [
+        { label: "QYXcc — Computing / Cloud", href: "#portals" },
+        { label: "QYXds — Data Storage", href: "#portals" },
+        { label: "QYXnc — Network / Connectivity", href: "#portals" },
+        { label: "QYXes — Energy / Sustainability", href: "#portals" },
+      ] },
     ],
   },
   {
     label: "Developers",
-    columns: [
-      {
-        title: "Build",
-        links: [
-          { label: "API Access", description: "REST & event-driven APIs" },
-          { label: "SDKs", description: "Typed client libraries" },
-          { label: "Documentation", description: "QYX20 Documentation" },
-        ],
-      },
-    ],
+    columns: [{ title: "Build", links: [
+      { label: "API Access", href: "#developers", description: "REST & event-driven APIs" },
+      { label: "SDKs", href: "#developers", description: "Typed client libraries" },
+      { label: "Documentation", href: "#developers", description: "QYX20 Documentation" },
+    ] }],
   },
   {
     label: "Resources",
-    columns: [
-      {
-        title: "Learn",
-        links: [
-          { label: "Tutorials" },
-          { label: "Sample Applications" },
-          { label: "Testing Consoles" },
-        ],
-      },
-    ],
+    columns: [{ title: "Learn", links: [
+      { label: "Tutorials", href: "#developers" },
+      { label: "Sample Applications", href: "#developers" },
+      { label: "Testing Consoles", href: "#developers" },
+    ] }],
   },
 ]
 

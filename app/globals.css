@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Orbitron:wght@500;600;700&display=swap');
+@import 'tailwindcss';
+
+:root { --gold:#c9a86a; --champagne:#e6c7a0; --platinum:#ececec; --silver:#c0c0c0; --graphite:#1a1a1a; --deep:#121212; --void:#000; }
+* { box-sizing:border-box; }
+html, body { margin:0; min-height:100%; background:var(--void); color:var(--platinum); }
+body { font-family:Inter, sans-serif; }
+button, input { font:inherit; }
+button { cursor:pointer; }
+::selection { background:var(--gold); color:#000; }
+.font-display { font-family:Orbitron, sans-serif; }
+.font-tech { font-family:'JetBrains Mono', monospace; }
+.font-copy { font-family:'Exo 2', sans-serif; }
+.grid-lines { background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px); background-size:32px 32px; }
+.panel { background:rgba(18,18,18,.86); border:1px solid #292929; }
+.gold-line { border-color:rgba(201,168,106,.42); }
+@media (prefers-reduced-motion: no-preference) { .interactive { transition:background .2s ease,border-color .2s ease,color .2s ease,transform .2s ease; } .interactive:hover { transform:translateY(-1px); } }

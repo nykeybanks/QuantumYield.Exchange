@@ -165,6 +165,9 @@ a { color: inherit; }
   .dialog-heading { padding-block: 0; }
   .dialog-content { padding: 8px; }
 }
+@media (max-height: 380px) {
+  .card-body { padding-block: 0; }
+}
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
   .scene-continuity { display: none; }

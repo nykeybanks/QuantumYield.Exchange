@@ -12,6 +12,7 @@ import {
   Coins,
 } from "lucide-react"
 import { cn } from "@/lib/utils"
+import { Card } from "@/components/workspace/primitives"
 
 function Panel({
   title,
@@ -25,63 +26,19 @@ function Panel({
   className?: string
 }) {
   return (
-    <section className={cn("border border-border bg-qyx-obsidian/50", className)}>
-      <header className="flex items-center justify-between border-b border-border px-5 py-3">
-        <h2 className="font-mono text-[11px] uppercase tracking-[0.16em] text-text-secondary">
-          {title}
-        </h2>
-        {action && (
-          <Link
-            href={action.href}
-            className="flex items-center gap-1 font-body text-xs text-text-muted transition-colors hover:text-champagne"
-          >
-            {action.label}
-            <ArrowUpRight className="h-3 w-3" />
-          </Link>
-        )}
-      </header>
-      <div className="p-5">{children}</div>
-    </section>
+    <Card title={title} className={className} action={action ? <Link href={action.href} className="flex items-center gap-1 text-text-secondary">{action.label}<ArrowUpRight size={16} /></Link> : undefined}>
+      {children}
+    </Card>
   )
 }
 
 export function ContextHeader() {
   return (
-    <div className="mb-6 flex flex-col gap-4 border border-border bg-qyx-obsidian/50 p-5 sm:flex-row sm:items-center sm:justify-between">
-      <div>
-        <div className="font-mono text-[11px] uppercase tracking-[0.16em] text-text-muted">
-          Operating as
-        </div>
-        <div className="mt-1 flex items-center gap-3">
-          <span className="font-display text-xl tracking-wide text-platinum">
-            QuantumYield
-          </span>
-          <span className="text-border-strong" aria-hidden>
-            /
-          </span>
-          <span className="font-body text-text-secondary">
-            Personal workspace
-          </span>
-        </div>
-      </div>
-      <div className="flex items-center gap-6">
-        <div>
-          <div className="font-mono text-[11px] uppercase tracking-wide text-text-muted">
-            Verification
-          </div>
-          <div className="mt-1 flex items-center gap-1.5 font-body text-sm text-success">
-            <ShieldCheck className="h-4 w-4" />
-            Level 2
-          </div>
-        </div>
-        <div>
-          <div className="font-mono text-[11px] uppercase tracking-wide text-text-muted">
-            Session
-          </div>
-          <div className="mt-1 font-body text-sm text-text-secondary">Secure</div>
-        </div>
-      </div>
-    </div>
+    <Card title="Workspace context · example">
+      <div data-keep-together className="metric-item"><p className="text-text-muted">Operating as</p><p className="text-platinum">QuantumYield · Personal workspace</p></div>
+      <div data-keep-together className="metric-item"><p className="text-text-muted">Verification example</p><p className="text-platinum">Level 2 · illustrative, not verified</p></div>
+      <div data-keep-together className="metric-item"><p className="text-text-muted">Session example</p><p className="text-platinum">Secure · no authenticated session</p></div>
+    </Card>
   )
 }
 
@@ -100,7 +57,7 @@ export function FinancialOverview() {
     >
       <div className="grid grid-cols-2 gap-px border border-border bg-border">
         {BALANCES.map((b) => (
-          <div key={b.label} className="bg-qyx-obsidian p-4">
+          <div key={b.label} className="metric-item" data-keep-together>
             <div className="font-body text-xs text-text-muted">{b.label}</div>
             <div className="mt-2 flex items-baseline gap-1.5">
               <span className="font-display text-2xl tracking-tight text-platinum">
@@ -242,13 +199,13 @@ export function QyxaiPanel() {
       <div className="mt-4 flex flex-wrap gap-2">
         {["Draft review note", "Summarize ledger", "Explain exception"].map(
           (a) => (
-            <button
+            <Link
               key={a}
-              type="button"
-              className="border border-border-strong bg-surface px-3 py-1.5 font-body text-xs text-text-secondary transition-colors hover:border-border-active hover:text-platinum"
+              href="/platform/qyxai"
+              className="border border-border-strong bg-surface px-3 py-1.5 font-body text-sm text-text-secondary transition-colors hover:border-border-active hover:text-platinum"
             >
-              {a}
-            </button>
+              {a} · demo
+            </Link>
           ),
         )}
       </div>

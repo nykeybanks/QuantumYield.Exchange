@@ -1,5 +1,5 @@
 import { LAYERS } from "@/lib/platform"
-import { SectionHeading } from "./platform-layers"
+import { SectionHeading } from "./section-heading"
 
 const EVIDENCE_MODEL = [
   { label: "System State", note: "Authoritative platform truth" },

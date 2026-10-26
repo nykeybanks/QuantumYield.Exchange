@@ -1,101 +1,36 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { Search, CornerDownLeft } from "lucide-react"
+import Link from "next/link"
+import { Search, ArrowUpRight } from "lucide-react"
+import { NAV_GROUPS } from "@/lib/nav"
+import { BoundedDialog } from "@/components/viewport/bounded-dialog"
+import { FitContent } from "@/components/viewport/fit-content"
 
-const CATEGORIES = [
-  "Accounts",
-  "Wallets",
-  "Assets",
-  "Payments",
-  "Settlements",
-  "Users",
-  "Policies",
-  "Integrations",
-  "Documents",
-  "Audit",
-  "Documentation",
-]
-
+const DESTINATIONS = NAV_GROUPS.flatMap(group => group.items)
 export function GlobalSearch() {
   const [open, setOpen] = useState(false)
   const [query, setQuery] = useState("")
-
   useEffect(() => {
-    function onKey(e: KeyboardEvent) {
-      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
-        e.preventDefault()
-        setOpen((v) => !v)
+    const onKey = (event: KeyboardEvent) => {
+      if (event.isComposing || event.keyCode === 229) return
+      if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "k") {
+        event.preventDefault(); setOpen(value => !value)
       }
-      if (e.key === "Escape") setOpen(false)
     }
     window.addEventListener("keydown", onKey)
     return () => window.removeEventListener("keydown", onKey)
   }, [])
-
-  return (
-    <>
-      <button
-        type="button"
-        onClick={() => setOpen(true)}
-        className="group flex items-center gap-2 border border-border bg-surface px-3 py-1.5 text-text-muted transition-colors hover:border-border-strong hover:text-text-secondary"
-      >
-        <Search className="h-3.5 w-3.5" />
-        <span className="hidden font-body text-sm sm:inline">Search QYX20</span>
-        <kbd className="ml-2 hidden border border-border px-1.5 font-mono text-[10px] sm:inline">
-          ⌘K
-        </kbd>
-      </button>
-
-      {open && (
-        <div
-          className="fixed inset-0 z-[100] flex items-start justify-center bg-qyx-void/80 px-4 pt-[12vh] backdrop-blur-sm"
-          onClick={() => setOpen(false)}
-        >
-          <div
-            className="w-full max-w-xl border border-border-strong bg-qyx-obsidian shadow-2xl"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="flex items-center gap-3 border-b border-border px-4">
-              <Search className="h-4 w-4 text-text-muted" />
-              <input
-                autoFocus
-                value={query}
-                onChange={(e) => setQuery(e.target.value)}
-                placeholder="Search accounts, payments, policies, docs…"
-                className="w-full bg-transparent py-4 font-body text-platinum placeholder:text-text-muted focus:outline-none"
-              />
-              <kbd className="border border-border px-1.5 font-mono text-[10px] text-text-muted">
-                ESC
-              </kbd>
-            </div>
-            <div className="p-3">
-              <div className="px-2 pb-2 font-mono text-[10px] uppercase tracking-wide text-text-muted">
-                Categories
-              </div>
-              <ul className="grid grid-cols-2 gap-1">
-                {CATEGORIES.filter((c) =>
-                  c.toLowerCase().includes(query.toLowerCase()),
-                ).map((c) => (
-                  <li key={c}>
-                    <button
-                      type="button"
-                      className="flex w-full items-center justify-between px-3 py-2 text-left font-body text-sm text-text-secondary transition-colors hover:bg-surface-elevated hover:text-platinum"
-                    >
-                      {c}
-                      <CornerDownLeft className="h-3 w-3 text-text-muted" />
-                    </button>
-                  </li>
-                ))}
-              </ul>
-              <p className="mt-3 border-t border-border px-2 pt-3 font-body text-xs text-text-muted">
-                Results are permission-aware. This is an illustrative search
-                surface.
-              </p>
-            </div>
-          </div>
-        </div>
-      )}
-    </>
-  )
+  const matches = DESTINATIONS.filter(item => item.label.toLowerCase().includes(query.trim().toLowerCase()))
+  return <>
+    <button type="button" className="search-trigger" onClick={() => setOpen(true)} aria-label="Search QYX20"><Search size={18} /><span>Search</span><kbd>⌘ K</kbd></button>
+    <BoundedDialog open={open} onClose={() => setOpen(false)} title="Search QYX20">
+      <div className="search-body">
+        <label className="sr-only" htmlFor="global-query">Search destinations</label>
+        <input id="global-query" autoFocus value={query} onChange={event => setQuery(event.target.value)} placeholder="Search destinations…" autoComplete="off" />
+        <FitContent label="Results" items={matches.map(item => ({ id: `${item.href}/${item.label}`, content: <Link className="search-result" href={item.href} onClick={() => setOpen(false)}><span>{item.label}</span><ArrowUpRight size={18} aria-hidden="true" /></Link> }))} />
+        <p className="search-note">Prototype navigation · no private records</p>
+      </div>
+    </BoundedDialog>
+  </>
 }

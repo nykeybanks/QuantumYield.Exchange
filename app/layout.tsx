@@ -1,6 +1,10 @@
 import type { Metadata, Viewport } from "next"
-import { Orbitron, Exo_2, JetBrains_Mono } from "next/font/google"
+import { Orbitron, Inter, Exo_2, JetBrains_Mono } from "next/font/google"
+import { ViewportProvider } from "@/components/viewport/viewport-provider"
 import "./globals.css"
+import "@/styles/viewport.css"
+
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" })
 
 const orbitron = Orbitron({
   subsets: ["latin"],
@@ -22,7 +26,7 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "QYX20 — Unified Financial Infrastructure by QuantumYield",
+    default: "QYX20 — Financial Infrastructure Prototype by QuantumYield",
     template: "%s — QYX20",
   },
   description:
@@ -39,8 +43,8 @@ export const metadata: Metadata = {
   ],
   manifest: "/manifest.webmanifest",
   icons: {
-    icon: "/icon.svg",
-    apple: "/icon.svg",
+    icon: "/brand/qyx/source-05/logos/q-emblem-white.png",
+    apple: "/brand/qyx/source-05/logos/q-emblem-white.png",
   },
   openGraph: {
     title: "QYX20 — Unified Financial Infrastructure",
@@ -52,11 +56,12 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
-  themeColor: "#000000",
+  themeColor: "#0A0A0A",
   colorScheme: "dark",
   width: "device-width",
   initialScale: 1,
-  maximumScale: 5,
+  viewportFit: "cover",
+  interactiveWidget: "resizes-content",
 }
 
 export default function RootLayout({
@@ -67,10 +72,10 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${orbitron.variable} ${exo2.variable} ${jetbrainsMono.variable} bg-background`}
+      className={`${orbitron.variable} ${inter.variable} ${exo2.variable} ${jetbrainsMono.variable} bg-background`}
     >
-      <body className="bg-background text-foreground font-body antialiased">
-        {children}
+      <body className="qyx-root bg-background text-foreground font-sans antialiased">
+        <ViewportProvider>{children}</ViewportProvider>
       </body>
     </html>
   )

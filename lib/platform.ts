@@ -121,7 +121,7 @@ export const ECOSYSTEM = [
 ]
 
 export const ROADMAP = [
-  { phase: "Foundation", status: "Live", detail: "Identity, ledger, accounts and the core platform shell." },
+  { phase: "Foundation", status: "Prototype", detail: "Identity, ledger, accounts and the core platform shell." },
   { phase: "Money Movement", status: "In progress", detail: "Payment lifecycles, settlement and reconciliation." },
   { phase: "Intelligence", status: "In progress", detail: "QYXai evidence-grounded reasoning across domains." },
   { phase: "Developer", status: "Preview", detail: "Public APIs, SDKs, webhooks and environments." },

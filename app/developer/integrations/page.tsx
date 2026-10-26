@@ -28,7 +28,7 @@ export default function IntegrationsPage() {
                 {name}
               </div>
               <StatusPill tone={tone}>
-                {tone === "success" ? "Connected" : "Available"}
+                {tone === "success" ? "Demo configuration" : "Planned"}
               </StatusPill>
             </div>
             <p className="mt-2 font-body text-sm text-text-muted">{desc}</p>

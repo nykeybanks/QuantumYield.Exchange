@@ -1,5 +1,3 @@
-import { EnvironmentBadge } from "@/components/shell/environment-badge"
-
 const SUMMARY = [
   { label: "Open payments", value: "3" },
   { label: "Pending settlements", value: "2" },
@@ -22,7 +20,7 @@ export function DashboardContext() {
           <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-text-secondary">
             Context
           </span>
-          <EnvironmentBadge env="PRODUCTION" />
+          <span className="prototype-label">Illustrative</span>
         </div>
         <div className="border border-border bg-qyx-obsidian/60 p-4">
           <div className="font-body text-sm text-platinum">Primary Treasury</div>

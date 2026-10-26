@@ -1,5 +1,7 @@
-import type { ReactNode } from "react"
+import { Children, cloneElement, isValidElement, type ReactElement, type ReactNode } from "react"
 import { cn } from "@/lib/utils"
+import { FitContent } from "@/components/viewport/fit-content"
+import { DataTable as RecordBrowser } from "./record-browser"
 
 export function PageIntro({
   eyebrow,
@@ -11,15 +13,12 @@ export function PageIntro({
   description: string
 }) {
   return (
-    <div className="mb-6 max-w-2xl">
-      <div className="font-mono text-[11px] uppercase tracking-[0.16em] text-champagne">
-        {eyebrow}
-      </div>
-      <h2 className="mt-2 font-display text-2xl tracking-wide text-platinum">
-        {title}
-      </h2>
-      <p className="mt-2 font-body text-text-secondary">{description}</p>
-    </div>
+    <Card title="Overview">
+      <div className="intro-eyebrow">{eyebrow} · Prototype</div>
+      <h2 className="intro-title text-balance">{title}</h2>
+      <p className="intro-description text-pretty">{description}</p>
+      <p className="text-text-muted">Illustrative environment. No live balances, transactions, credentials, or financial connections.</p>
+    </Card>
   )
 }
 
@@ -29,12 +28,9 @@ export function StatGrid({
   stats: { label: string; value: string; unit?: string; note?: string }[]
 }) {
   return (
-    <div
-      className="grid grid-cols-2 gap-px border border-border bg-border md:grid-cols-4"
-      role="list"
-    >
+    <Card title="Illustrative metrics">
       {stats.map((s) => (
-        <div key={s.label} className="bg-qyx-obsidian p-4" role="listitem">
+        <div key={s.label} className="metric-item" data-keep-together>
           <div className="font-body text-xs text-text-muted">{s.label}</div>
           <div className="mt-2 flex items-baseline gap-1.5">
             <span className="font-display text-2xl tracking-tight text-platinum">
@@ -53,7 +49,7 @@ export function StatGrid({
           )}
         </div>
       ))}
-    </div>
+    </Card>
   )
 }
 
@@ -68,17 +64,20 @@ export function Card({
   children: ReactNode
   className?: string
 }) {
+  const nodes = Children.toArray(children)
+  const table = nodes.find(node => isValidElement(node) && node.type === DataTable)
+  const safeAction = isValidElement<{ href?: string }>(action) && action.props.href === "#"
+    ? <span className="prototype-action">Create unavailable · prototype</span>
+    : action
   return (
-    <section className={cn("border border-border bg-qyx-obsidian/50", className)}>
-      {title && (
-        <header className="flex items-center justify-between border-b border-border px-5 py-3">
-          <h3 className="font-mono text-[11px] uppercase tracking-[0.16em] text-text-secondary">
-            {title}
-          </h3>
-          {action}
-        </header>
-      )}
-      <div className="p-5">{children}</div>
+    <section className={cn("workspace-card", className)}>
+      <header className="card-heading">
+        <h2>{title || "Details"}</h2>
+        {safeAction}
+      </header>
+      <div className="card-body">
+        {table ? cloneElement(table as ReactElement<{ notes?: ReactNode }>, { notes: nodes.filter(node => node !== table) }) : <FitContent label="Content">{children}</FitContent>}
+      </div>
     </section>
   )
 }
@@ -114,45 +113,13 @@ export function StatusPill({
 export function DataTable({
   columns,
   rows,
+  notes,
 }: {
   columns: string[]
   rows: ReactNode[][]
+  notes?: ReactNode
 }) {
-  return (
-    <div className="overflow-x-auto border border-border">
-      <table className="w-full border-collapse text-left">
-        <thead>
-          <tr className="border-b border-border bg-qyx-obsidian">
-            {columns.map((c) => (
-              <th
-                key={c}
-                className="px-4 py-3 font-mono text-[10px] uppercase tracking-wide text-text-muted"
-              >
-                {c}
-              </th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {rows.map((row, i) => (
-            <tr
-              key={i}
-              className="border-b border-border bg-qyx-obsidian/40 transition-colors last:border-b-0 hover:bg-surface-elevated"
-            >
-              {row.map((cell, j) => (
-                <td
-                  key={j}
-                  className="px-4 py-3 font-body text-sm text-text-secondary"
-                >
-                  {cell}
-                </td>
-              ))}
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  )
+  return <RecordBrowser columns={columns} rows={rows} notes={notes} />
 }
 
 export function PhaseFlow({

@@ -47,7 +47,7 @@ export default function WalletsPage() {
                 Primary Wallet
               </div>
               <div className="font-mono text-[11px] text-text-muted">
-                qyx1p…9f3a · Account primary · Network: QYX Mainnet
+                qyx1p…9f3a · Example account · No network connection
               </div>
             </div>
           </div>

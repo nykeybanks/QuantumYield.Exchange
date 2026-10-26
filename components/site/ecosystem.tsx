@@ -1,5 +1,5 @@
 import { ECOSYSTEM, ROADMAP } from "@/lib/platform"
-import { SectionHeading } from "./platform-layers"
+import { SectionHeading } from "./section-heading"
 import { cn } from "@/lib/utils"
 
 const STATUS_STYLES: Record<string, string> = {

@@ -23,9 +23,9 @@
   --color-qyx-gold: #b79355;
 
   /* Semantic tokens */
-  --color-background: #000000;
-  --color-surface: #0a0a0a;
-  --color-surface-elevated: #121212;
+  --color-background: #0a0a0a;
+  --color-surface: #121212;
+  --color-surface-elevated: #1a1a1a;
   --color-surface-raised: #1a1a1a;
 
   --color-border: #232323;
@@ -34,7 +34,7 @@
 
   --color-foreground: #f5f5f2;
   --color-text-secondary: #b8b8b3;
-  --color-text-muted: #777772;
+  --color-text-muted: #b0b0b0;
 
   --color-champagne: #e6c7a0;
   --color-gold: #b79355;
@@ -45,12 +45,12 @@
   --color-success: #5fa87a;
   --color-warning: #d1a24a;
   --color-danger: #c0655a;
-  --color-information: #6f8bb0;
+  --color-information: #c0c0c0;
 
   /* Typography */
   --font-display: var(--font-orbitron), ui-sans-serif, system-ui, sans-serif;
   --font-body: var(--font-exo2), ui-sans-serif, system-ui, sans-serif;
-  --font-sans: var(--font-exo2), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-mono-jetbrains), ui-monospace, monospace;
 
   /* Radius */
@@ -79,8 +79,8 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
-    font-family: var(--font-body);
-    line-height: 1.6;
+    font-family: var(--font-sans);
+    line-height: 1.5;
   }
 
   ::selection {
@@ -153,7 +153,7 @@
 
   /* Subtle focal illumination — use sparingly */
   .qyx-focal-glow {
-    box-shadow: 0 0 80px -20px rgba(230, 199, 160, 0.35);
+    box-shadow: none;
   }
 
   .tracking-brand {

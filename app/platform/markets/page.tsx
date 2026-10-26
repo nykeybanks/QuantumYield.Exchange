@@ -58,7 +58,7 @@ export default function MarketsPage() {
           title="QYX/USD"
           action={<StatusPill tone="gold">Illustrative · delayed</StatusPill>}
         >
-          <div className="relative flex h-72 items-center justify-center border border-border bg-qyx-void/60">
+          <div className="relative flex items-center justify-center border border-border bg-qyx-void/60">
             <div className="qyx-grid absolute inset-0 opacity-50" aria-hidden />
             <div className="relative flex flex-col items-center gap-2 text-text-muted">
               <LineChart className="h-8 w-8" />
@@ -66,7 +66,7 @@ export default function MarketsPage() {
                 Advanced charting workspace
               </span>
               <span className="font-mono text-[11px]">
-                Streaming charts mount here in the live environment
+                Concept only · no market feed connected
               </span>
             </div>
           </div>

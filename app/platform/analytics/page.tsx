@@ -28,11 +28,11 @@ export default function AnalyticsPage() {
 
       <div className="mt-6">
         <Card title="Settlement volume — trailing 12 periods">
-          <div className="flex h-56 items-end gap-2">
+          <div className="analytics-chart" data-keep-together role="img" aria-label={`Illustrative settlement volume index, periods 1 to 12: ${SERIES.join(', ')}`}>
             {SERIES.map((v, i) => (
-              <div key={i} className="flex flex-1 flex-col items-center gap-2">
+              <div key={i} className="analytics-period">
                 <div
-                  className="w-full bg-gradient-to-t from-graphite to-champagne/70"
+                  className="w-full bg-silver"
                   style={{ height: `${v}%` }}
                 />
                 <span className="font-mono text-[9px] text-text-muted">

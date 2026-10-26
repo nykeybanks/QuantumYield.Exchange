@@ -98,7 +98,7 @@ Authorization: Bearer pk_live_…
   "state": "review_required"
 }`}
           </pre>
-          <IllustrativeNote>Console shown for documentation — no live execution.</IllustrativeNote>
+          <IllustrativeNote>Concept API contract, not a verified or implemented endpoint. No live execution.</IllustrativeNote>
         </Card>
       </div>
 

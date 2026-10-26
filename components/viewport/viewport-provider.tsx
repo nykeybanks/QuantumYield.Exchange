@@ -1,11 +1,15 @@
 "use client"
 
-import { createContext, useContext, useEffect, useRef, useState, type ReactNode } from "react"
+import { createContext, useContext, useEffect, useRef, useState, type Dispatch, type SetStateAction, type ReactNode } from "react"
 import { usePathname } from "next/navigation"
 import type { Workspace } from "@/lib/nav"
 
 export type MotionMode = "Balanced" | "Immersive" | "Reduced"
+export type WelcomeDraft = { step: number; workspace: Workspace; destination: string; confirmed: boolean }
+const initialWelcome: WelcomeDraft = { step: 0, workspace: "Personal", destination: "/dashboard", confirmed: false }
 const ViewportContext = createContext({
+  welcome: initialWelcome,
+  setWelcome: (() => {}) as Dispatch<SetStateAction<WelcomeDraft>>,
   workspace: "Personal" as Workspace,
   setWorkspace: (_value: Workspace) => {},
   mode: "Balanced" as MotionMode,
@@ -16,6 +20,7 @@ const ViewportContext = createContext({
 })
 
 export function ViewportProvider({ children }: { children: ReactNode }) {
+  const [welcome, setWelcome] = useState(initialWelcome)
   const [workspace, setWorkspace] = useState<Workspace>("Personal")
   const [mode, setMode] = useState<MotionMode>("Balanced")
   const [systemReduced, setSystemReduced] = useState(false)
@@ -48,7 +53,7 @@ export function ViewportProvider({ children }: { children: ReactNode }) {
 
   const reduced = systemReduced || mode === "Reduced"
   return (
-    <ViewportContext.Provider value={{ workspace, setWorkspace, mode, setMode, reduced, scene, acknowledge }}>
+    <ViewportContext.Provider value={{ workspace, setWorkspace, mode, setMode, reduced, scene, acknowledge, welcome, setWelcome }}>
       <div className="viewport-root" data-motion={reduced ? "reduced" : mode.toLowerCase()}>
         <SceneContinuity identity={`${pathname}:${workspace}:${scene}`} reduced={reduced} />
         {children}
@@ -76,7 +81,7 @@ function SceneContinuity({ identity, reduced }: { identity: string; reduced: boo
     if (previous.current === identity) return
     const direction = identity.localeCompare(previous.current) >= 0 ? 1 : -1
     const current = getComputedStyle(node).transform
-    const headings = Array.from(document.querySelectorAll<HTMLElement>('.scene-slot:not([hidden]) .card-heading h2'))
+    const headings = Array.from(document.querySelectorAll<HTMLElement>('.scene-slot:not([hidden]) .card-heading h2, [data-scene-heading]')).filter(heading => heading.checkVisibility({ visibilityProperty: true }))
     const startingStyles = headings.map(heading => ({ transform: getComputedStyle(heading).transform, opacity: getComputedStyle(heading).opacity }))
     animation.current?.cancel()
     groups.current.forEach(group => group.cancel())

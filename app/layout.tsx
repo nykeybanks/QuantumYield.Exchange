@@ -3,6 +3,7 @@ import { Orbitron, Inter, Exo_2, JetBrains_Mono } from "next/font/google"
 import { ViewportProvider } from "@/components/viewport/viewport-provider"
 import "./globals.css"
 import "@/styles/viewport.css"
+import "@/styles/public.css"
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" })
 
@@ -30,7 +31,7 @@ export const metadata: Metadata = {
     template: "%s — QYX20",
   },
   description:
-    "QYX20 is QuantumYield's unified platform architecture for identity, accounts, wallets, assets, payments, treasury, settlement, intelligence, interoperability, developer services, data and institutional operations.",
+    "Explore QuantumYield's QYX20 interactive prototype. Discover the proposed platform, browse workspaces, and start a guided introduction to money, operations and intelligence.",
   applicationName: "QYX20",
   keywords: [
     "QYX20",
@@ -47,9 +48,9 @@ export const metadata: Metadata = {
     apple: "/brand/qyx/source-05/logos/q-emblem-white.png",
   },
   openGraph: {
-    title: "QYX20 — Unified Financial Infrastructure",
+    title: "QYX20 — Connected. By design.",
     description:
-      "QuantumYield's unified platform for identity, assets, payments, settlement, intelligence and developer services.",
+      "Explore QuantumYield's proposed financial platform through an interactive prototype and guided welcome experience. No live financial connections.",
     siteName: "QYX20",
     type: "website",
   },

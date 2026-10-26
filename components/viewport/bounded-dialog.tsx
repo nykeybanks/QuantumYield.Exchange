@@ -4,7 +4,7 @@ import { useEffect, useId, useRef, type ReactNode } from "react"
 import { createPortal } from "react-dom"
 import { X } from "lucide-react"
 
-export function BoundedDialog({ open, onClose, title, children }: { open: boolean; onClose: () => void; title: string; children: ReactNode }) {
+export function BoundedDialog({ open, onClose, title, children, className = "", id: suppliedId }: { open: boolean; onClose: () => void; title: string; children: ReactNode; className?: string; id?: string }) {
   const dialog = useRef<HTMLDialogElement>(null)
   const close = useRef(onClose)
   const id = useId()
@@ -18,7 +18,7 @@ export function BoundedDialog({ open, onClose, title, children }: { open: boolea
   }, [open])
   if (!open || typeof document === "undefined") return null
   return createPortal(
-    <dialog ref={dialog} className="bounded-dialog" aria-labelledby={id} onKeyDown={event => {
+    <dialog ref={dialog} id={suppliedId} className={`bounded-dialog ${className}`} aria-labelledby={id} onKeyDown={event => {
       if (event.key !== "Tab") return
       const controls = [...event.currentTarget.querySelectorAll<HTMLElement>('a[href], button:not(:disabled), input:not(:disabled), select:not(:disabled), textarea:not(:disabled), [tabindex="0"]')].filter(element => element.checkVisibility({ visibilityProperty: true }) && !element.closest('[inert], [hidden]'))
       const first = controls[0], last = controls.at(-1)

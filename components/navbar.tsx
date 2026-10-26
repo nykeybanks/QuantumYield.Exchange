@@ -4,7 +4,6 @@ import { useCallback, useEffect, useState } from "react"
 import { ChevronDown, Menu } from "lucide-react"
 import { MobileNavigation } from "./mobile-navigation"
 import { QyxLogo } from "./qyx-logo"
-import { Button } from "./ui"
 import { navItems } from "@/lib/data"
 
 export function Navbar() {
@@ -27,6 +26,8 @@ export function Navbar() {
         scrolled ? "glass border-border" : "border-transparent bg-background/90"
       }`}
       onMouseLeave={() => setOpenMenu(null)}
+      onBlur={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) setOpenMenu(null) }}
+      onKeyDown={(event) => { if (event.key === "Escape") setOpenMenu(null) }}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-5 lg:px-8" aria-label="Primary">
         <a href="#top" className="shrink-0" aria-label="QYX20 home">
@@ -56,10 +57,8 @@ export function Navbar() {
         </ul>
 
         <div className="hidden items-center gap-2 xl:flex">
-          <button className="px-3 py-2 text-sm text-muted-foreground transition-colors hover:text-foreground">
-            Sign In
-          </button>
-          <Button className="px-5 py-2.5">Launch App</Button>
+          <span className="px-3 font-mono text-[9px] uppercase tracking-widest text-muted-foreground">Prototype</span>
+          <a href="#portals" className="qyx-action">Explore QYX20</a>
         </div>
 
         <button
@@ -87,7 +86,7 @@ export function Navbar() {
                 {item.columns.map((col) => (
                   <div key={col.title}>
                     <p className="mb-4 text-xs font-medium uppercase tracking-[0.24em] text-gold">{col.title}</p>
-                    <ul className="space-y-3">
+                    <ul className="flex flex-col gap-3">
                       {col.links.map((link) => (
                         <li key={link.label}>
                           <a href={link.href} onClick={() => setOpenMenu(null)} className="group block text-left">

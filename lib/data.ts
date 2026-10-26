@@ -12,13 +12,13 @@ export const navItems: NavItem[] = [
         links: [
           { label: "Overview", href: "#top", description: "The QYX20 gateway at a glance" },
           { label: "Wallets", href: "#financial-flow", description: "Non-custodial and smart accounts" },
-          { label: "Settlement", href: "#financial-flow", description: "Near-instant transaction finality" },
+          { label: "Settlement", href: "#financial-flow", description: "Proposed settlement flow" },
         ],
       },
       {
         title: "Experience",
         links: [
-          { label: "Gasless Transactions", href: "#features", description: "Meta-transaction relayer" },
+          { label: "Transaction Experience", href: "#features", description: "Planned transaction model" },
           { label: "Cross-Chain", href: "#features", description: "Unified multi-network protocol" },
         ],
       },
@@ -83,22 +83,19 @@ export type ValueProp = {
 
 export const valueProps: ValueProp[] = [
   {
-    title: "Enterprise Security",
-    short: "Military-grade encryption and multi-layer security protocols protect your assets.",
-    detail:
-      "Identity, authentication, authorization and encryption operate as coordinated layers — security is treated as foundational infrastructure, not an add-on.",
+    title: "Security by Design",
+    short: "A proposed layered approach to identity, permissions, and data protection.",
+    detail: "Security principles guide the concept. Controls, audits, and independent validation are not represented as complete.",
   },
   {
-    title: "Lightning Fast",
-    short: "Sub-second transaction finality with near-zero gas fees for all users.",
-    detail:
-      "An optimized consensus mechanism and meta-transaction system deliver responsive settlement while keeping the experience effortless for every user.",
+    title: "Considered Execution",
+    short: "A design focused on clear transaction states and understandable costs.",
+    detail: "Settlement performance and fees depend on future implementation and network selection. No performance guarantees are made.",
   },
   {
-    title: "Cross-Chain Ready",
-    short: "Seamlessly interact with multiple blockchain networks from one platform.",
-    detail:
-      "A unified protocol bridges assets across Ethereum, BSC, Polygon and more, so multi-network activity feels like a single environment.",
+    title: "Connected Experiences",
+    short: "A shared interface concept for navigating multiple networks and services.",
+    detail: "Cross-network capabilities are planned. No bridges, asset transfers, or live connections are available in this prototype.",
   },
 ]
 
@@ -109,28 +106,10 @@ export type Feature = {
 }
 
 export const features: Feature[] = [
-  {
-    title: "Gasless Transactions",
-    description:
-      "Execute transactions without worrying about gas fees. Our innovative meta-transaction system covers the costs.",
-    status: "FOUNDATION",
-  },
-  {
-    title: "Cross-Chain Integration",
-    description: "Bridge assets seamlessly across Ethereum, BSC, Polygon, and more with our unified protocol.",
-    status: "INTEGRATION",
-  },
-  {
-    title: "Advanced Security",
-    description:
-      "Multi-signature wallets, time-locked transactions, and audited smart contracts ensure maximum protection.",
-    status: "BUILD",
-  },
-  {
-    title: "Instant Settlement",
-    description: "Experience near-instant transaction finality with our optimized consensus mechanism.",
-    status: "VALIDATION",
-  },
+  { title: "Transaction Experience", description: "A planned approach to clear fees and sponsored transactions. Sponsorship rules, supported networks, and costs remain to be defined.", status: "CONCEPT" },
+  { title: "Cross-Chain Integration", description: "A proposed shared interface across blockchain networks. Supported networks and bridge providers are not yet verified.", status: "PLANNED" },
+  { title: "Layered Security", description: "Design priorities include scoped permissions, multi-signature controls, and recovery. No completed audit or security certification is claimed.", status: "DESIGN PRIORITY" },
+  { title: "Settlement Visibility", description: "A concept for tracking execution, confirmation, and reconciliation. Settlement speed depends on the selected network and implementation.", status: "CONCEPT" },
 ]
 
 export type TokenMetric = {
@@ -140,60 +119,24 @@ export type TokenMetric = {
 }
 
 export const tokenMetrics: TokenMetric[] = [
-  {
-    label: "Total Supply",
-    value: "1,000,000,000",
-    detail: "The fixed total supply of QYX, denominated in QYX tokens.",
-  },
-  {
-    label: "Circulating Supply",
-    value: "300,000,000",
-    detail: "QYX currently circulating across the ecosystem.",
-  },
-  {
-    label: "Max Cap",
-    value: "1,000,000,000",
-    detail: "The maximum cap of QYX that can ever exist.",
-  },
-  {
-    label: "Token Type",
-    value: "Utility & Governance",
-    detail: "QYX powers platform utility and on-chain governance participation.",
-  },
+  { label: "Total Supply", value: "TBD", detail: "No verified token supply specification is published in this prototype." },
+  { label: "Circulating Supply", value: "Unverified", detail: "No live chain data is connected. This interface does not report circulation." },
+  { label: "Distribution", value: "TBD", detail: "Allocation and distribution terms require an approved specification." },
+  { label: "Token Utility", value: "Concept", detail: "Utility and governance are exploratory concepts, not available services or an investment offer." },
 ]
 
 export type Milestone = {
   quarter: string
   title: string
   items: string[]
-  status: "Completed" | "In Progress"
+  status: "Prototype" | "Planned"
 }
 
 export const roadmap: Milestone[] = [
-  {
-    quarter: "Q4 2025",
-    title: "Platform Launch",
-    items: ["Mainnet deployment", "Token generation event", "Initial DEX listings"],
-    status: "Completed",
-  },
-  {
-    quarter: "Q1 2026",
-    title: "Ecosystem Expansion",
-    items: ["Cross-chain bridges", "Mobile wallet release", "Partnership announcements"],
-    status: "Completed",
-  },
-  {
-    quarter: "Q2 2026",
-    title: "DeFi Integration",
-    items: ["Staking platform", "Yield farming", "Governance portal"],
-    status: "In Progress",
-  },
-  {
-    quarter: "Q3 2026",
-    title: "Enterprise Solutions",
-    items: ["B2B partnerships", "API marketplace", "Developer grants program"],
-    status: "In Progress",
-  },
+  { quarter: "PHASE 01", title: "Experience Foundation", items: ["Canonical brand system", "Responsive interface", "Interactive concept explorer"], status: "Prototype" },
+  { quarter: "PHASE 02", title: "Platform Definition", items: ["Architecture specification", "Network evaluation", "Security requirements"], status: "Planned" },
+  { quarter: "PHASE 03", title: "Integration Research", items: ["Sandbox validation", "Provider evaluation", "Independent review"], status: "Planned" },
+  { quarter: "PHASE 04", title: "Release Readiness", items: ["Operational validation", "Documentation", "Release criteria — dates TBD"], status: "Planned" },
 ]
 
 export type Portal = {
@@ -270,8 +213,6 @@ export const portals: Portal[] = [
     capabilities: ["Carbon Tracking", "Green Mining", "Energy Credits", "Sustainability Metrics"],
   },
 ]
-
-export const trustLogos = ["Nvidia", "Column", "GitHub", "Nike", "Lemon Squeezy", "Laravel", "Lilly", "OpenAI"]
 
 export const architectureLayers = [
   { label: "Applications", detail: "User-facing experiences built on the QYX20 gateway." },

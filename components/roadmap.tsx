@@ -6,17 +6,16 @@ import { SectionLabel, StatusPill } from "./ui"
 import { roadmap } from "@/lib/data"
 
 export function Roadmap() {
-  const [active, setActive] = useState(2)
+  const [active, setActive] = useState(0)
 
   return (
-    <section className="border-y border-border bg-surface/30 py-24 lg:py-32">
+    <section id="roadmap" className="border-y border-border bg-surface/30 py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <Reveal className="mx-auto max-w-2xl text-center">
           <SectionLabel>Development Roadmap</SectionLabel>
           <h2 className="mt-6 text-balance text-4xl font-bold tracking-tight sm:text-5xl">Development Roadmap</h2>
           <p className="mt-5 text-pretty leading-relaxed text-muted-foreground">
-            Our journey to revolutionize blockchain technology, one milestone at a time. Click any milestone to explore
-            detailed information.
+            A proposed sequence, not a delivery commitment. Select a phase to explore its scope. Release dates remain to be determined.
           </p>
         </Reveal>
 
@@ -68,7 +67,7 @@ export function Roadmap() {
 
           {/* Detail */}
           <Reveal className="mt-10">
-            <div className="rounded-3xl border border-border bg-surface-raised p-5 sm:p-8 lg:p-10">
+            <div className="rounded-xl border border-border bg-surface-raised p-5 sm:p-8 lg:p-10">
               <div className="flex flex-wrap items-center justify-between gap-4">
                 <div>
                   <p className="text-sm uppercase tracking-[0.2em] text-gold">{roadmap[active].quarter}</p>

@@ -11,16 +11,16 @@ export function ControlDataPlane() {
           Governed execution, by design.
         </h2>
         <p className="mt-5 text-pretty leading-relaxed text-muted-foreground">
-          The control plane governs the data plane — policy and configuration shape every operation that runs.
+          In the proposed architecture, a control plane would govern policy and configuration while a data plane would handle execution. These are design concepts.
         </p>
       </Reveal>
 
       <div className="relative mt-16 grid gap-6 lg:grid-cols-2">
         <Reveal>
-          <div className="h-full rounded-3xl border border-border bg-surface-raised p-8">
+          <div className="h-full rounded-xl border border-border bg-surface-raised p-8">
             <p className="font-display text-sm uppercase tracking-[0.24em] text-gold">Control Plane</p>
             <p className="mt-2 text-sm text-muted-foreground">Governs</p>
-            <ul className="mt-6 space-y-2.5">
+            <ul className="mt-6 flex flex-col gap-2.5">
               {controlPlane.map((item) => (
                 <li
                   key={item}
@@ -35,7 +35,7 @@ export function ControlDataPlane() {
         </Reveal>
 
         <Reveal delay={120}>
-          <div className="h-full rounded-3xl border border-border bg-surface/40 p-8">
+          <div className="h-full rounded-xl border border-border bg-surface/40 p-8">
             <p className="font-display text-sm uppercase tracking-[0.24em] text-silver">Data Plane</p>
             <p className="mt-2 text-sm text-muted-foreground">Governed by the control plane</p>
             <ul className="mt-6 grid gap-2.5 sm:grid-cols-2">

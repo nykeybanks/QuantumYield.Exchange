@@ -17,8 +17,7 @@ export function FinancialFlow() {
             The financial architecture.
           </h2>
           <p className="mt-5 text-pretty leading-relaxed text-muted-foreground">
-            Value moves through a considered sequence of layers. Select any layer to reveal its purpose — advanced
-            detail stays hidden until requested.
+            A conceptual value-flow model. No funds move through this interface and no banking connectivity is claimed. Select a layer to explore its intended purpose.
           </p>
         </Reveal>
 
@@ -50,13 +49,13 @@ export function FinancialFlow() {
           </div>
 
           <div
-            className={`grid transition-all duration-500 ${
+            className={`grid transition-all duration-300 ${
               active !== null ? "mt-8 grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
             }`}
           >
             <div className="overflow-hidden">
               {active !== null && (
-                <div className="rounded-2xl border border-gold/30 bg-surface-raised p-7">
+                <div className="rounded-lg border border-gold/30 bg-surface-raised p-7">
                   <p className="text-sm uppercase tracking-[0.2em] text-gold">{financialFlow[active].label}</p>
                   <p className="mt-3 max-w-xl leading-relaxed text-muted-foreground">{financialFlow[active].detail}</p>
                 </div>

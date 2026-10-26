@@ -14,7 +14,7 @@ export function Ecosystem() {
             One ecosystem. Multiple gateways.
           </h2>
           <p className="mx-auto mt-5 max-w-xl text-pretty leading-relaxed text-muted-foreground">
-            QYX20 brings specialized technology domains together through a unified QuantumYield experience.
+            A vision for bringing specialized technology domains together through a unified QuantumYield experience. Connections shown are conceptual.
           </p>
         </Reveal>
 

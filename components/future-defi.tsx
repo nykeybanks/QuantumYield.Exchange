@@ -14,13 +14,12 @@ export function FutureDefi() {
   return (
     <section className="relative mx-auto max-w-7xl px-5 py-24 lg:px-8 lg:py-32">
       <Reveal className="max-w-2xl">
-        <SectionLabel>The future of decentralized finance</SectionLabel>
+        <SectionLabel>01 / Design principles</SectionLabel>
         <h2 className="mt-6 text-balance text-4xl font-bold tracking-tight sm:text-5xl">
-          The Future of Decentralized Finance
+          Considered at every layer.
         </h2>
         <p className="mt-5 text-pretty leading-relaxed text-muted-foreground">
-          Three foundations carry the QYX20 experience. Each begins simple — explore any one to reveal how it works
-          beneath the surface.
+          Three priorities guide the QYX20 concept. Explore each to understand the intent and what remains to be validated.
         </p>
       </Reveal>
 

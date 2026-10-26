@@ -16,9 +16,9 @@ export function Architecture() {
         <div className="lg:sticky lg:top-28 lg:self-start">
           <Reveal>
             <SectionLabel>Architecture</SectionLabel>
-            <h2 className="mt-6 text-balance text-4xl font-bold tracking-tight sm:text-5xl">Built as infrastructure.</h2>
+            <h2 className="mt-6 text-balance text-4xl font-bold tracking-tight sm:text-5xl">Designed as infrastructure.</h2>
             <p className="mt-5 max-w-md text-pretty leading-relaxed text-muted-foreground">
-              Cloud-native. API-first. Event-driven. AI-native. Security-by-design.
+              A proposed architecture, not a deployed service map. Select a layer to inspect its intended role.
             </p>
             <div className="mt-7 flex flex-wrap gap-2">
               {principles.map((p) => (
@@ -30,7 +30,7 @@ export function Architecture() {
                 </span>
               ))}
             </div>
-            <div className="mt-8 hidden rounded-2xl border border-border bg-surface-raised p-6 lg:block">
+            <div className="mt-8 hidden rounded-lg border border-border bg-surface-raised p-6 lg:block">
               <p className="text-sm uppercase tracking-[0.2em] text-gold">{architectureLayers[active].label}</p>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{architectureLayers[active].detail}</p>
             </div>

@@ -12,16 +12,15 @@ const capabilities = [
 ]
 
 const codeLines = [
-  { t: "import", v: ' { QYX20 } from "@qyx20/sdk"' },
-  { t: "", v: "" },
-  { t: "const", v: " qyx = new QYX20({ apiKey: process.env.QYX_KEY })" },
-  { t: "", v: "" },
-  { t: "comment", v: "// Gasless, cross-chain transfer" },
-  { t: "const", v: " tx = await qyx.transfer({" },
-  { t: "prop", v: "  asset: \"QYX\"," },
-  { t: "prop", v: "  to: wallet," },
-  { t: "prop", v: "  gasless: true," },
-  { t: "", v: "})" },
+  { t: "comment", v: "// Illustrative specification — not an API" },
+  { t: "", v: "{" },
+  { t: "", v: '  "product": "QYX20",' },
+  { t: "", v: '  "status": "concept",' },
+  { t: "", v: '  "interface": "unified-gateway",' },
+  { t: "", v: '  "liveConnections": false,' },
+  { t: "", v: '  "publicSdk": "planned",' },
+  { t: "", v: '  "documentation": "planned"' },
+  { t: "", v: "}" },
 ]
 
 export function DeveloperSection() {
@@ -32,8 +31,7 @@ export function DeveloperSection() {
           <SectionLabel>Developers</SectionLabel>
           <h2 className="mt-6 text-balance text-4xl font-bold tracking-tight sm:text-5xl">Build on QYX20.</h2>
           <p className="mt-5 max-w-md text-pretty leading-relaxed text-muted-foreground">
-            API access, SDKs, developer environments and usage analytics — everything you need to ship on the
-            QuantumYield platform. A real platform, not decorative marketing.
+            A proposed developer experience for the QuantumYield ecosystem. APIs, SDKs, and testing environments are planned; no public SDK or API access is represented as available.
           </p>
           <ul className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3">
             {capabilities.map((c) => (
@@ -46,18 +44,18 @@ export function DeveloperSection() {
               </li>
             ))}
           </ul>
-          <Button className="mt-9">QYX20 Documentation</Button>
+          <Button variant="secondary" className="mt-9" disabled>Documentation is planned</Button>
         </Reveal>
 
         <Reveal delay={120}>
-          <div className="overflow-hidden rounded-2xl border border-border bg-[#0a0a0c] shadow-[0_20px_60px_rgba(0,0,0,0.5)]">
+          <div className="overflow-hidden rounded-lg border border-border bg-[#0a0a0c] shadow-[0_20px_60px_rgba(0,0,0,0.5)]">
             <div className="flex items-center gap-2 border-b border-border px-4 py-3">
               <span className="h-3 w-3 rounded-full bg-border-strong" />
               <span className="h-3 w-3 rounded-full bg-border-strong" />
               <span className="h-3 w-3 rounded-full bg-border-strong" />
-              <span className="ml-3 font-sans text-xs text-chrome">transfer.ts</span>
+              <span className="ml-3 font-sans text-xs text-chrome">concept.jsonc</span>
             </div>
-            <pre tabIndex={0} role="region" aria-label="Transfer code example, scroll horizontally to read" className="max-w-full overflow-x-auto overscroll-x-contain p-4 font-mono text-xs leading-relaxed sm:p-5 sm:text-[13px]">
+            <pre tabIndex={0} role="region" aria-label="Illustrative concept specification, not a working API" className="max-w-full overflow-x-auto overscroll-x-contain p-4 font-mono text-xs leading-relaxed sm:p-5 sm:text-[13px]">
               <code>
                 {codeLines.map((line, i) => (
                   <div key={i} className="whitespace-pre">

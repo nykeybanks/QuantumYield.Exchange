@@ -2,13 +2,13 @@ import { NextResponse } from "next/server"
 
 export function GET() {
   return NextResponse.json({
-    name: "QYX20 — QuantumYield Online Web-3 Gateway",
+    name: "QYX20™ — The Connectivity Standard",
     short_name: "QYX20",
-    description: "Luxury-grade Web3 suite for the modern era.",
+    description: "QuantumYield interface prototype. Explore a connected ecosystem concept.",
     start_url: "/",
     display: "standalone",
-    background_color: "#050506",
-    theme_color: "#050506",
+    background_color: "#0A0A0A",
+    theme_color: "#0A0A0A",
     icons: [
       {
         src: "/brand/qyx/source-05/lockups/app-icon.png",

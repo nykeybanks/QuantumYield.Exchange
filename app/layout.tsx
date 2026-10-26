@@ -1,25 +1,12 @@
 import type React from "react"
 import type { Metadata, Viewport } from "next"
-import { Orbitron, Exo_2 } from "next/font/google"
-import { Preloader } from "@/components/preloader"
+import { qyxFontVariables } from "@/lib/qyx-fonts"
 import "./globals.css"
 
-const orbitron = Orbitron({
-  subsets: ["latin"],
-  variable: "--font-orbitron",
-  display: "swap",
-})
-
-const exo2 = Exo_2({
-  subsets: ["latin"],
-  variable: "--font-exo2",
-  display: "swap",
-})
-
 export const metadata: Metadata = {
-  title: "QYX20 — QuantumYield Online Web-3 Gateway",
+  title: "QYX20™ — The Connectivity Standard | QuantumYield",
   description:
-    "QYX20 combines cutting-edge blockchain technology with user-centric design to create a seamless, secure, and scalable platform for the next generation of decentralized applications.",
+    "Explore the QYX20 interface prototype by QuantumYield. A unified vision for connected experiences, intelligent services, and Web3 infrastructure. Capabilities are planned, not live financial services.",
   applicationName: "QYX20",
   manifest: "/manifest.webmanifest",
   icons: {
@@ -31,14 +18,14 @@ export const metadata: Metadata = {
   },
   keywords: ["QYX20", "QuantumYield", "Web3", "DeFi", "blockchain", "gateway"],
   openGraph: {
-    title: "QYX20 — QuantumYield Online Web-3 Gateway",
-    description: "Luxury-grade Web3 suite for the modern era.",
+    title: "QYX20™ — The Connectivity Standard",
+    description: "A connected ecosystem, precisely engineered. Explore the QuantumYield interface prototype.",
     type: "website",
   },
 }
 
 export const viewport: Viewport = {
-  themeColor: "#050506",
+  themeColor: "#0A0A0A",
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",
@@ -51,10 +38,9 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`bg-background ${orbitron.variable} ${exo2.variable}`}>
-      <body className="antialiased">
-        <noscript><style>{`.qyx-preloader { display: none !important; }`}</style></noscript>
-        <Preloader />
+    <html lang="en" className={`bg-background ${qyxFontVariables}`}>
+      <body className="qyx-root antialiased">
+        <a href="#main-content" className="qyx-skip-link">Skip to content</a>
         {children}
       </body>
     </html>

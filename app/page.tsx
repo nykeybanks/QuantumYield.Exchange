@@ -21,10 +21,10 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <main className="qyx-home">
+      <main id="main-content" tabIndex={-1} className="qyx-home">
         <Hero />
-        <Statement />
         <TrustSection />
+        <Statement />
         <FutureDefi />
         <Features />
         <TokenEconomics />

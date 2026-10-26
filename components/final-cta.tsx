@@ -1,5 +1,4 @@
 import { Reveal } from "./reveal"
-import { Button } from "./ui"
 
 export function FinalCta() {
   return (
@@ -9,21 +8,18 @@ export function FinalCta() {
       <div className="relative mx-auto max-w-3xl px-5 text-center lg:px-8">
         <Reveal>
           <h2 className="text-balance text-4xl font-bold leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl">
-            Ready to Transform Your Life with Web3?
+            Built around a more connected future.
           </h2>
         </Reveal>
         <Reveal delay={100}>
           <p className="mx-auto mt-6 max-w-xl text-pretty leading-relaxed text-muted-foreground">
-            Join thousands of companies already using QuantumYield to streamline their operations and boost
-            productivity.
+            Explore the QuantumYield™ vision. A considered ecosystem, a shared identity, and a clear distinction between what is designed and what is available.
           </p>
         </Reveal>
         <Reveal delay={180}>
           <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <Button className="w-full sm:w-auto">Start Your Free Trial</Button>
-            <Button variant="secondary" className="w-full sm:w-auto">
-              QYX20 Documentation
-            </Button>
+            <a href="#portals" className="qyx-action w-full sm:w-auto">Explore the ecosystem</a>
+            <a href="#developers" className="qyx-action w-full sm:w-auto" data-variant="secondary">Developer roadmap</a>
           </div>
         </Reveal>
       </div>

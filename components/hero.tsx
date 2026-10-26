@@ -1,82 +1,37 @@
-import { Play } from "lucide-react"
-import { Button, SectionLabel } from "./ui"
-import { Reveal } from "./reveal"
-
-function QuantumVisual() {
-  return (
-    <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
-      <div className="absolute inset-0 bg-grid opacity-60 [mask-image:radial-gradient(65%_60%_at_50%_40%,black,transparent)]" />
-      <div className="absolute inset-0 bg-radial-gold" />
-      <div className="absolute left-1/2 top-[42%] aspect-square w-[min(150vw,640px)] -translate-x-1/2 -translate-y-1/2 opacity-60 sm:opacity-100">
-        <svg viewBox="0 0 640 640" className="h-full w-full">
-          <defs>
-            <linearGradient id="ring" x1="0" y1="0" x2="640" y2="640" gradientUnits="userSpaceOnUse">
-              <stop stopColor="#c6a85a" stopOpacity="0.55" />
-              <stop offset="1" stopColor="#c6a85a" stopOpacity="0.05" />
-            </linearGradient>
-            <radialGradient id="core" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stopColor="#e6d3a0" stopOpacity="0.9" />
-              <stop offset="100%" stopColor="#c6a85a" stopOpacity="0" />
-            </radialGradient>
-          </defs>
-          <g className="animate-orbit" style={{ transformOrigin: "320px 320px" }}>
-            <ellipse cx="320" cy="320" rx="300" ry="120" fill="none" stroke="url(#ring)" strokeWidth="1" />
-            <circle cx="620" cy="320" r="3" fill="#c6a85a" />
-          </g>
-          <g className="animate-orbit-reverse" style={{ transformOrigin: "320px 320px" }}>
-            <ellipse
-              cx="320"
-              cy="320"
-              rx="120"
-              ry="300"
-              fill="none"
-              stroke="url(#ring)"
-              strokeWidth="1"
-              transform="rotate(30 320 320)"
-            />
-            <circle cx="320" cy="20" r="2.5" fill="#d9c084" />
-          </g>
-          <circle cx="320" cy="320" r="230" fill="none" stroke="#c6a85a" strokeOpacity="0.12" strokeWidth="1" />
-          <circle cx="320" cy="320" r="150" fill="none" stroke="#c6a85a" strokeOpacity="0.18" strokeWidth="1" />
-          <circle cx="320" cy="320" r="120" fill="url(#core)" />
-        </svg>
-      </div>
-    </div>
-  )
-}
+import { ArrowDown, ArrowUpRight } from "lucide-react"
+import { SectionLabel } from "./ui"
+import { GatewayPreview } from "./gateway-preview"
 
 export function Hero() {
   return (
-    <section id="top" className="qyx-hero relative flex min-h-svh items-center justify-center overflow-hidden pb-12 pt-32 sm:pb-16 sm:pt-36">
-      <QuantumVisual />
-      <div className="relative z-10 mx-auto max-w-4xl px-5 text-center lg:px-8">
-        <Reveal>
-          <SectionLabel>QuantumYield Online Web-3 Gateway</SectionLabel>
-        </Reveal>
-        <Reveal delay={80}>
-          <h1 className="mt-6 text-balance text-[clamp(2rem,8.8vw,3rem)] font-bold leading-[1.15] tracking-tight sm:mt-8 sm:text-6xl sm:leading-[1.05] lg:text-7xl">
-            <span className="text-gradient-silver">Luxury-grade Web3 suite</span>
-            <br />
-            <span className="text-gradient-gold">for the modern era</span>
-          </h1>
-        </Reveal>
-        <Reveal delay={160}>
-          <p className="mx-auto mt-7 max-w-2xl text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg">
-            QYX20 combines cutting-edge blockchain technology with user-centric design to create a seamless, secure,
-            and scalable platform for the next generation of decentralized applications.
-          </p>
-        </Reveal>
-        <Reveal delay={240}>
-          <div className="mx-auto mt-8 flex max-w-sm flex-col items-stretch justify-center gap-3 sm:mt-10 sm:max-w-none sm:flex-row sm:items-center">
-            <Button className="w-full sm:w-auto">Start Free Trial</Button>
-            <Button variant="secondary" className="w-full sm:w-auto">
-              <Play className="h-4 w-4" />
-              Watch Demo
-            </Button>
-          </div>
-        </Reveal>
+    <section id="top" className="qyx-hero mx-auto max-w-7xl px-5 pb-8 pt-32 lg:px-8 lg:pt-40">
+      <div className="flex items-center justify-between border-b border-border pb-5 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
+        <span>QuantumYield™ / QYX20™</span>
+        <span className="flex items-center gap-2"><span className="size-1.5 bg-gold" aria-hidden="true" />Interface prototype</span>
       </div>
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent to-background" />
+      <div className="grid items-center gap-12 py-12 lg:grid-cols-[1.05fr_1fr] lg:gap-16 lg:py-16">
+        <div>
+          <SectionLabel>The connectivity standard</SectionLabel>
+          <h1 className="mt-7 text-balance font-display text-4xl font-medium leading-[1.16] tracking-tight sm:text-5xl lg:text-[3.5rem]">
+            One gateway.<br />
+            <span className="text-gold-soft">A connected</span><br />
+            <span className="text-gold-soft">future.</span>
+          </h1>
+          <p className="mt-7 max-w-md text-pretty font-body text-lg leading-relaxed text-muted-foreground">
+            Intelligence, infrastructure, and digital experiences. Explore the QYX20 vision for one precisely engineered ecosystem.
+          </p>
+          <div className="mt-9 flex flex-col items-stretch gap-3 sm:flex-row sm:items-center">
+            <a href="#portals" className="qyx-action">Explore the ecosystem <ArrowUpRight className="size-4" aria-hidden="true" /></a>
+            <a href="#architecture" className="qyx-action" data-variant="secondary">View architecture</a>
+          </div>
+          <p className="mt-5 font-mono text-[10px] uppercase leading-relaxed tracking-wider text-muted-foreground">Concept experience. No wallet or account required.</p>
+        </div>
+        <GatewayPreview />
+      </div>
+      <div className="flex items-center justify-between border-t border-border pt-6 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
+        <span>Precision over decoration. <span className="hidden sm:inline">System over screens.</span></span>
+        <a href="#ecosystem-overview" className="inline-flex min-h-11 items-center gap-3 text-foreground hover:text-gold">Discover <ArrowDown className="size-3" aria-hidden="true" /></a>
+      </div>
     </section>
   )
 }

@@ -18,7 +18,6 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "That doesn't look like a valid email." }, { status: 422 })
   }
 
-  // No newsletter store is connected, so we acknowledge the request
-  // honestly without claiming a subscription was persisted.
-  return NextResponse.json({ message: "Thanks — your request has been received." })
+  // A subscription must not be acknowledged until it is durably stored.
+  return NextResponse.json({ error: "Newsletter signup is not available yet. Your email has not been saved." }, { status: 503 })
 }

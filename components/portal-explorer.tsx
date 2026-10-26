@@ -1,7 +1,11 @@
 "use client"
 
 import { useState } from "react"
-import { ArrowRight, Check } from "lucide-react"
+import { Plus } from "lucide-react"
+import { QYXProductMark } from "@/components/brand"
+import type { QYXProduct } from "@/lib/qyx-brand-assets"
+
+const productMarks: Partial<Record<string, QYXProduct>> = { QYXai: "qyxai", QYXvr: "qyxvr", QYXar: "qyxar" }
 import { Reveal } from "./reveal"
 import { Button, SectionLabel } from "./ui"
 import { portals } from "@/lib/data"
@@ -16,8 +20,7 @@ export function PortalExplorer() {
         <SectionLabel>QYX20 Portals</SectionLabel>
         <h2 className="mt-6 text-balance text-4xl font-bold tracking-tight sm:text-5xl">QYX20 Portals</h2>
         <p className="mt-5 text-pretty leading-relaxed text-muted-foreground">
-          Access gateways and innovation hubs powered by QuantumYield Technology platform. Each portal provides
-          specialized functionality and seamless integration with the QYX20 ecosystem.
+          Explore proposed gateways in the QuantumYield ecosystem. Select a portal to inspect its concept scope; these services are not live.
         </p>
       </Reveal>
 
@@ -41,7 +44,7 @@ export function PortalExplorer() {
 
       {/* Portal detail */}
       <Reveal className="mt-6 sm:mt-10">
-        <div className="grid overflow-hidden rounded-3xl border border-border bg-surface-raised lg:grid-cols-2">
+        <div className="grid overflow-hidden rounded-xl border border-border bg-surface-raised lg:grid-cols-2">
           {/* Visual */}
           <div className="relative flex min-h-44 sm:min-h-64 items-center justify-center overflow-hidden border-b border-border lg:border-b-0 lg:border-r">
             <div aria-hidden className="absolute inset-0 bg-grid opacity-40" />
@@ -50,10 +53,12 @@ export function PortalExplorer() {
               key={portal.id}
               className="qyx-portal-enter relative flex flex-col items-center"
             >
-              <span className="font-display text-6xl font-bold tracking-tight text-gradient-gold sm:text-7xl">
-                {portal.name}
-              </span>
-              <span className="mt-3 text-xs uppercase tracking-[0.3em] text-chrome">QuantumYield Portal</span>
+              {productMarks[portal.id] ? (
+                <QYXProductMark product={productMarks[portal.id]!} alt={portal.name} height={32} />
+              ) : (
+                <span className="font-sans text-2xl font-medium text-foreground">{portal.name}</span>
+              )}
+              <span className="mt-5 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">Portal concept · Planned</span>
             </div>
           </div>
 
@@ -65,16 +70,14 @@ export function PortalExplorer() {
               {portal.capabilities.map((cap) => (
                 <li key={cap} className="flex items-center gap-2.5 text-sm text-silver">
                   <span className="flex h-5 w-5 items-center justify-center rounded-full border border-gold/40 text-gold">
-                    <Check className="h-3 w-3" />
+                    <Plus className="h-3 w-3" aria-hidden="true" />
                   </span>
                   {cap}
                 </li>
               ))}
             </ul>
-            <Button className="mt-7 w-full sm:w-auto">
-              Explore {portal.name}
-              <ArrowRight className="h-4 w-4" />
-            </Button>
+            <p className="mt-6 font-mono text-[10px] uppercase tracking-wider text-gold">Proposed capabilities — not connected</p>
+            <Button variant="secondary" className="mt-4 w-full sm:w-auto" disabled>{portal.name} access is planned</Button>
           </div>
         </div>
       </Reveal>

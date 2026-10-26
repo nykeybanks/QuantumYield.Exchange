@@ -1,38 +1,28 @@
 @import "tailwindcss";
+@import "../styles/qyx.css";
+@import "../styles/tailwind-theme.css";
+@import "../styles/application.css";
 
 @theme inline {
-  /* Core surfaces — ultra dark QYX20 environment */
-  --color-background: #050506;
-  --color-foreground: #e8e6e1;
-
-  --color-surface: #0b0b0d;
-  --color-surface-raised: #121215;
-  --color-graphite: #17171b;
-  --color-charcoal: #1e1e22;
-
-  --color-muted: #0e0e10;
-  --color-muted-foreground: #8a877f;
-
-  --color-border: #232327;
-  --color-border-strong: #33333a;
-
-  /* QYX Gold accent */
-  --color-gold: #c9a86a;
-  --color-gold-soft: #e6c7a0;
-  --color-gold-deep: #b79355;
-  --color-gold-foreground: #0a0a0b;
-
-  /* Restrained silver / chrome */
-  --color-silver: #b9bac0;
-  --color-chrome: #6f7076;
-
-  --color-success: #6fae7a;
-  --color-info: #7d8aa8;
-
-  --font-sans: var(--font-exo2), ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-orbitron), ui-sans-serif, system-ui, sans-serif;
-
-  --radius: 0.75rem;
+  --color-background: var(--background);
+  --color-foreground: var(--qyx-platinum);
+  --color-surface: var(--surface);
+  --color-surface-raised: var(--surface-elevated);
+  --color-graphite: var(--qyx-graphite);
+  --color-charcoal: var(--qyx-deep-charcoal);
+  --color-muted: var(--qyx-deep-charcoal);
+  --color-muted-foreground: var(--foreground-muted);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-gold: var(--qyx-quantum-gold);
+  --color-gold-soft: var(--qyx-champagne);
+  --color-gold-deep: var(--qyx-muted-gold);
+  --color-gold-foreground: var(--accent-foreground);
+  --color-silver: var(--qyx-silver);
+  --color-chrome: var(--qyx-titanium);
+  --color-success: var(--qyx-success);
+  --color-info: var(--qyx-verified);
+  --radius: var(--qyx-radius-sm);
 }
 
 @layer base {
@@ -73,17 +63,11 @@
 
 @layer utilities {
   .text-gradient-gold {
-    background: linear-gradient(135deg, #e6d3a0 0%, #c6a85a 45%, #9c8544 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    color: var(--qyx-champagne);
   }
 
   .text-gradient-silver {
-    background: linear-gradient(135deg, #ffffff 0%, #b9bac0 55%, #6f7076 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    color: var(--qyx-platinum);
   }
 
   .bg-grid {
@@ -94,7 +78,7 @@
   }
 
   .bg-radial-gold {
-    background: radial-gradient(60% 60% at 50% 30%, rgba(198, 168, 90, 0.12) 0%, transparent 70%);
+    background: transparent;
   }
 
   .hairline {
@@ -108,6 +92,8 @@
 }
 
 /* Keep server-rendered content readable before hydration. */
+
+
 .reveal {
   opacity: 1;
   transform: none;

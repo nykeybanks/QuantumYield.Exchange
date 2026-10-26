@@ -44,7 +44,7 @@ export function Newsletter() {
           <SectionLabel>Newsletter</SectionLabel>
           <h2 className="mt-6 text-balance text-3xl font-bold tracking-tight sm:text-4xl">Stay Updated with QYX20</h2>
           <p className="mx-auto mt-4 max-w-lg text-pretty leading-relaxed text-muted-foreground">
-            Subscribe to our newsletter for the latest updates, announcements, and exclusive insights.
+            Product updates are planned. Newsletter signup is not connected yet; this preview does not collect or save email addresses.
           </p>
         </Reveal>
 
@@ -56,6 +56,7 @@ export function Newsletter() {
               </label>
               <input
                 id="newsletter-email"
+                disabled
                 type="email"
                 inputMode="email"
                 autoComplete="email"
@@ -66,13 +67,13 @@ export function Newsletter() {
                   if (status !== "idle") setStatus("idle")
                 }}
                 aria-invalid={status === "error"}
-                className="min-h-12 w-full rounded-full border border-border bg-surface px-5 py-3 text-base text-foreground placeholder:text-chrome focus:border-gold/50"
+                className="min-h-12 w-full rounded border border-border bg-surface px-5 py-3 text-base text-foreground placeholder:text-chrome focus:border-gold/50"
               />
             </div>
             <button
               type="submit"
-              disabled={status === "loading"}
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-gold px-6 py-3 text-sm font-medium text-gold-foreground transition-all duration-300 hover:bg-gold-soft disabled:cursor-not-allowed disabled:opacity-70"
+              disabled
+              className="inline-flex items-center justify-center gap-2 rounded bg-gold px-6 py-3 text-sm font-medium text-gold-foreground transition-all duration-300 hover:bg-gold-soft disabled:cursor-not-allowed disabled:opacity-70"
             >
               {status === "loading" ? (
                 <>
@@ -86,7 +87,7 @@ export function Newsletter() {
                 </>
               ) : (
                 <>
-                  Subscribe
+                  Coming soon
                   <ArrowRight className="h-4 w-4" />
                 </>
               )}

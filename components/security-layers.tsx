@@ -16,7 +16,7 @@ export function SecurityLayers() {
           <SectionLabel>Security</SectionLabel>
           <h2 className="mt-6 text-balance text-4xl font-bold tracking-tight sm:text-5xl">Security is foundational.</h2>
           <p className="mt-5 text-pretty leading-relaxed text-muted-foreground">
-            Layered protection, revealed progressively — select a layer to understand its role.
+            Proposed security principles, not a certification or audit claim. Select a layer to understand its intended role.
           </p>
         </Reveal>
 
@@ -29,7 +29,7 @@ export function SecurityLayers() {
                   onMouseEnter={() => setActive(i)}
                   onClick={() => setActive(i)}
                   aria-pressed={isActive}
-                  className={`group flex h-full w-full flex-col rounded-2xl border p-6 text-left transition-all duration-300 ${
+                  className={`group flex h-full w-full flex-col rounded-lg border p-6 text-left transition-all duration-300 ${
                     isActive
                       ? "border-gold/40 bg-surface-raised"
                       : "border-border bg-surface/50 hover:border-border-strong"

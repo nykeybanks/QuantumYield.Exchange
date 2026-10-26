@@ -16,25 +16,17 @@ export function TokenEconomics() {
           <SectionLabel>Token Economics</SectionLabel>
           <h2 className="mt-6 text-balance text-4xl font-bold tracking-tight sm:text-5xl">Token Economics</h2>
           <p className="mt-5 max-w-md text-pretty leading-relaxed text-muted-foreground">
-            A sustainable and transparent token distribution model designed for long-term growth.
+            An exploratory framework. Supply, distribution, and utility remain unverified; this is not a token offering.
           </p>
           <div className="mt-8">
             <p className="text-sm uppercase tracking-[0.2em] text-gold">Token Distribution</p>
-            <div className="mt-4 flex h-3 w-full max-w-md overflow-hidden rounded-full border border-border">
-              <span className="h-full bg-gold" style={{ width: "30%" }} />
-              <span className="h-full bg-gold/30" style={{ width: "70%" }} />
-            </div>
-            <p className="mt-3 text-xs text-muted-foreground">
-              300,000,000 QYX circulating of 1,000,000,000 QYX total supply.
-            </p>
-            <Button variant="secondary" className="mt-8">
-              View Detailed Distribution
-            </Button>
+            <p className="mt-4 border-l border-border-strong pl-4 font-body text-sm leading-relaxed text-muted-foreground">Awaiting a verified specification. No financial data or live token balances are displayed.</p>
+            <Button variant="secondary" className="mt-8" disabled>Specification not published</Button>
           </div>
         </Reveal>
 
         <Reveal delay={120}>
-          <div className="grid gap-px overflow-hidden rounded-3xl border border-border bg-border sm:grid-cols-2">
+          <div className="grid gap-px overflow-hidden rounded-xl border border-border bg-border sm:grid-cols-2">
             {tokenMetrics.map((m, i) => {
               const isOpen = open === i
               return (
@@ -52,7 +44,7 @@ export function TokenEconomics() {
                     {m.value}
                   </span>
                   <div
-                    className={`grid transition-all duration-500 ${
+                    className={`grid transition-all duration-300 ${
                       isOpen ? "mt-3 grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
                     }`}
                   >
